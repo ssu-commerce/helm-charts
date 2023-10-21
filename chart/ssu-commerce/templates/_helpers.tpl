@@ -5,6 +5,10 @@ Expand the name of the chart.
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{- define "book-server.name" -}}
+{{- .Values.book.name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
 {{/*
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
@@ -48,6 +52,10 @@ Selector labels
 {{- define "ssu-commerce.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "ssu-commerce.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{- define "book-server.selectorLabels" -}}
+app: {{ include "book-server.name" . }}
 {{- end }}
 
 {{/*
