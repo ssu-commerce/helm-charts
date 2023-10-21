@@ -3,12 +3,12 @@ entries:
   ssu-commerce:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-21T23:50:00.821288+09:00"
+    created: "2023-10-21T23:59:15.707019+09:00"
     description: A Helm chart for Kubernetes
-    digest: 5444ecbfb8cdefd111906e9c8450865d17c32d54edabd64c65ee673c907e8388
+    digest: 2288e1bbf97a53a3ebbba2295e62264b60793bd08c9f15c41f08941924c8c8b8
     name: ssu-commerce
     type: application
     urls:
     - ssu-commerce-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-21T23:50:00.82076+09:00"
+generated: "2023-10-21T23:59:15.706524+09:00"
