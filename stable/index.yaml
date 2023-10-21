@@ -3,7 +3,7 @@ entries:
   redis:
   - apiVersion: v1
     appVersion: 5.0.7
-    created: "2023-10-21T13:51:58.694231+09:00"
+    created: "2023-10-21T14:20:55.222633+09:00"
     deprecated: true
     description: DEPRECATED Open source, advanced key-value store. It is often referred
       to as a data structure server since keys can contain strings, hashes, lists,
@@ -21,4 +21,15 @@ entries:
     urls:
     - redis-10.5.7.tgz
     version: 10.5.7
-generated: "2023-10-21T13:51:58.691761+09:00"
+  ssu-commerce:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-10-21T14:20:55.223015+09:00"
+    description: A Helm chart for Kubernetes
+    digest: 789be0a494bc9f65d97a99f3a700dd68cd77360944373ed9c4d19a36ff68f0bd
+    name: ssu-commerce
+    type: application
+    urls:
+    - ssu-commerce-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-10-21T14:20:55.220109+09:00"
