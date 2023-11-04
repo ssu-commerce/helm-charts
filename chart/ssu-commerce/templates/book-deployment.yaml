@@ -41,6 +41,8 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod
+            - name: JAVA_OPTIONS
+              value: -Dspring.profiles.active=prod
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
