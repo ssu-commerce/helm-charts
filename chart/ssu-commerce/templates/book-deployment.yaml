@@ -38,6 +38,9 @@ spec:
             - name: app
               containerPort: 8080
               protocol: TCP
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

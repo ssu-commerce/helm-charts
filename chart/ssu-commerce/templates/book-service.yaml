@@ -13,7 +13,3 @@ spec:
       name: http
   selector:
     {{- include "order-server.selectorLabels" . | nindent 4 }}
-  containers:
-    - env:
-      - name: SPRING_PROFILES_ACTIVE
-        value: prod
