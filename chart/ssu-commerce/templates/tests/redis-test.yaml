@@ -1,0 +1,196 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-master
+  template:
+    metadata:
+      labels:
+        app: redis-master
+    spec:
+      containers:
+        - name: redis-master
+          image: 'bitnami/redis:latest'
+          env:
+            - name: REDIS_REPLICATION_MODE
+              value: "master"
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+          ports:
+            - containerPort: 6379
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-master-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: redis-master
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-slave-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-slave-1
+  template:
+    metadata:
+      labels:
+        app: redis-slave-1
+    spec:
+      containers:
+        - name: redis-slave-1
+          image: 'bitnami/redis:latest'
+          env:
+            - name: REDIS_REPLICATION_MODE
+              value: "slave"
+            - name: REDIS_MASTER_HOST
+              value: "redis-master-service"
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+          ports:
+            - containerPort: 6379
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-slave-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-slave-2
+  template:
+    metadata:
+      labels:
+        app: redis-slave-2
+    spec:
+      containers:
+        - name: redis-slave-2
+          image: 'bitnami/redis:latest'
+          env:
+            - name: REDIS_REPLICATION_MODE
+              value: "slave"
+            - name: REDIS_MASTER_HOST
+              value: "redis-master-service"
+            - name: ALLOW_EMPTY_PASSWORD
+              value: "yes"
+          ports:
+            - containerPort: 6379
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-sentinel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-sentinel
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel
+    spec:
+      containers:
+        - name: redis-sentinel
+          image: 'bitnami/redis-sentinel:latest'
+          env:
+            - name: REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS
+              value: "3000"
+            - name: REDIS_MASTER_HOST
+              value: "redis-master-service"
+            - name: REDIS_MASTER_PORT_NUMBER
+              value: "6379"
+            - name: REDIS_MASTER_SET
+              value: "mymaster"
+            - name: REDIS_SENTINEL_QUORUM
+              value: "2"
+          ports:
+            - containerPort: 26379
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-sentinel-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-sentinel-2
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel-2
+    spec:
+      containers:
+        - name: redis-sentinel-2
+          image: 'bitnami/redis-sentinel:latest'
+          env:
+            - name: REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS
+              value: "3000"
+            - name: REDIS_MASTER_HOST
+              value: "redis-master-service"
+            - name: REDIS_MASTER_PORT_NUMBER
+              value: "6379"
+            - name: REDIS_MASTER_SET
+              value: "mymaster"
+            - name: REDIS_SENTINEL_QUORUM
+              value: "2"
+          ports:
+            - containerPort: 26379
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-sentinel-3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-sentinel-3
+  template:
+    metadata:
+      labels:
+        app: redis-sentinel-3
+    spec:
+      containers:
+        - name: redis-sentinel-3
+          image: 'bitnami/redis-sentinel:latest'
+          env:
+            - name: REDIS_SENTINEL_DOWN_AFTER_MILLISECONDS
+              value: "3000"
+            - name: REDIS_MASTER_HOST
+              value: "redis-master-service"
+            - name: REDIS_MASTER_PORT_NUMBER
+              value: "6379"
+            - name: REDIS_MASTER_SET
+              value: "mymaster"
+            - name: REDIS_SENTINEL_QUORUM
+              value: "2"
+          ports:
+            - containerPort: 26379
