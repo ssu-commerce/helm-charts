@@ -39,8 +39,8 @@ spec:
               containerPort: 8080
               protocol: TCP
           env:
-            - name: jAVA_TOOL_OPTIONS
-              value: -Dspring.profiles.active=prod
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
