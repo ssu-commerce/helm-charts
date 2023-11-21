@@ -8,7 +8,7 @@ book:
   name: ssu-commerce-book-server
   image:
     repository: ghcr.io/ssu-commerce/book-server
-    tag: aca16910617770870d41ec0a4778cb8107ebb015
+    tag: bc3aeedbe2cbef896a165197392cb122419ae379
   service:
     port: 8080
 
