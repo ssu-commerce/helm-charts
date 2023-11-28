@@ -30,7 +30,7 @@ kind: Service
 metadata:
   name: redis-master-service
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: redis-master
   ports:
