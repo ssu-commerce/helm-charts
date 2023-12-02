@@ -82,6 +82,6 @@ Service annotations
 */}}
 {{- define "ssu-commerce.annotations" -}}
 service.beta.kubernetes.io/ncloud-load-balancer-layer-type: {{ .Values.service.loadBalancer.type }}
-service.beta.kubernetes.io/ncloud-load-balancer-internal: "false"
+service.beta.kubernetes.io/ncloud-load-balancer-internal: "true"
 service.beta.kubernetes.io/ncloud-load-balancer-size: {{ .Values.service.loadBalancer.size }}
 {{- end }}
