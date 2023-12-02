@@ -4,8 +4,6 @@ metadata:
   name: {{ .Values.book.name }}
   labels:
     {{- include "ssu-commerce.labels" . | nindent 4 }}
-  annotations:
-    {{- include "ssu-commerce.annotations" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
