@@ -57,7 +57,6 @@ service:
   port: 80
   loadBalancer:
     type: "nplb"
-    internal: "false"
     size: "SMALL"
 
 ingress:
