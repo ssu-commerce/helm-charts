@@ -76,3 +76,12 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Service annotations
+*/}}
+{{- define "ssu-commerce.annotations" -}}
+service.beta.kubernetes.io/ncloud-load-balancer-layer-type: {{- .Values.service.loadBalancer.type }}
+service.beta.kubernetes.io/ncloud-load-balancer-internal: {{- .Values.service.loadBalancer.internal }}
+service.beta.kubernetes.io/ncloud-load-balancer-size: {{- .Values.service.loadBalancer.size }}
+{{- end }}
