@@ -10,7 +10,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.config.service.port }}
-      targetPort: 8080
+      targetPort: {{ .Values.config.pod.port }}
       protocol: TCP
       name: http
   selector:

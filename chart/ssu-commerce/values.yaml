@@ -9,6 +9,8 @@ book:
   image:
     repository: ghcr.io/ssu-commerce/book-server
     tag: b9e59d0cc507adfd0884e4b1456629544dd251b7
+  pod:
+    port: 8080
   service:
     port: 8080
   replicaCount: 0
@@ -18,6 +20,8 @@ order:
   image:
     repository: ghcr.io/ssu-commerce/order-server/api
     tag: latest
+  pod:
+    port: 8080
   service:
     port: 8080
   replicaCount: 0
@@ -27,6 +31,8 @@ config:
   image:
     repository: ghcr.io/ssu-commerce/config
     tag: 0.0.1-snapshot-3
+  pod:
+    port: 8080
   service:
     port: 8080
 
