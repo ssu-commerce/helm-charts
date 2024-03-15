@@ -20,6 +20,14 @@ order:
   service:
     port: 8080
 
+config:
+  name: ssu-commerce-config-server
+  image:
+    repository: ghcr.io/ssu-commerce/config
+    tag: 0.0.1-snapshot-3
+  service:
+    port: 8080
+
 image:
   repository: nginx
   pullPolicy: Always

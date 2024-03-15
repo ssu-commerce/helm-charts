@@ -13,6 +13,10 @@ Expand the name of the chart.
 {{- .Values.order.name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{- define "config-server.name" -}}
+{{- .Values.config.name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
 {{/*
 Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
@@ -64,6 +68,10 @@ app: {{ include "book-server.name" . }}
 
 {{- define "order-server.selectorLabels" -}}
 app: {{ include "order-server.name" . }}
+{{- end }}
+
+{{- define "config-server.selectorLabels" -}}
+app: {{ include "config-server.name" . }}
 {{- end }}
 
 {{/*
