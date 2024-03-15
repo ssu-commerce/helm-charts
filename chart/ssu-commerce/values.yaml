@@ -11,6 +11,7 @@ book:
     tag: b9e59d0cc507adfd0884e4b1456629544dd251b7
   service:
     port: 8080
+  replicaCount: 0
 
 order:
   name: ssu-commerce-order-server
@@ -19,6 +20,7 @@ order:
     tag: latest
   service:
     port: 8080
+  replicaCount: 0
 
 config:
   name: ssu-commerce-config-server
