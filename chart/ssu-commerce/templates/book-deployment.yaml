@@ -39,7 +39,7 @@ spec:
               protocol: TCP
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: prod
+              value: dev
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
