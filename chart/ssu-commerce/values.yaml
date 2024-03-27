@@ -7,8 +7,8 @@ replicaCount: 1
 book:
   name: ssu-commerce-book-server
   image:
-    repository: ghcr.io/ssu-commerce/book-server
-    tag: b9e59d0cc507adfd0884e4b1456629544dd251b7
+    repository: ghcr.io/ssu-commerce/book-server/api
+    tag: 2024.03.64
   pod:
     port: 8080
   service:
@@ -19,7 +19,7 @@ order:
   name: ssu-commerce-order-server
   image:
     repository: ghcr.io/ssu-commerce/order-server/api
-    tag: latest
+    tag: 2024.03.4
   pod:
     port: 8080
   service:
