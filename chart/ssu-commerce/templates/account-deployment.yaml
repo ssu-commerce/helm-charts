@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.order.name }}
+  name: {{ .Values.account.name }}
   labels:
     {{- include "ssu-commerce.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.order.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
@@ -19,7 +19,7 @@ spec:
       {{- end }}
       labels:
         {{- include "ssu-commerce.selectorLabels" . | nindent 8 }}
-        app: {{ .Values.order.name }}
+        app: {{ .Values.account.name }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -28,10 +28,10 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Values.order.name }}
+        - name: {{ .Values.account.name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.order.image.repository }}:{{ .Values.order.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.account.image.repository }}:{{ .Values.account.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: app
