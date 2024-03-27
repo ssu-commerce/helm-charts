@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.account.name }}
+  labels:
+    {{- include "ssu-commerce.labels" . | nindent 4 }}
+  annotations:
+    {{- include "ssu-commerce.annotations" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.account.service.port }}
+      targetPort: {{ .Values.account.pod.port }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "account-server.selectorLabels" . | nindent 4 }}

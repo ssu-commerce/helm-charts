@@ -37,6 +37,16 @@ config:
   service:
     port: 8080
 
+account:
+  name: ssu-commerce-account-server
+  image:
+    repository: ghcr.io/ssu-commerce/auth-server/api
+    tag: beta-2024.03.1
+  pod:
+    port: 8080
+  service:
+    port: 8080
+
 image:
   repository: nginx
   pullPolicy: Always
