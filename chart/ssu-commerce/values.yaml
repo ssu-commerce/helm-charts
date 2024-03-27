@@ -29,8 +29,8 @@ order:
 config:
   name: ssu-commerce-config-server
   image:
-    repository: ghcr.io/ssu-commerce/config
-    tag: 0.0.1-snapshot-3
+    repository: ghcr.io/ssu-commerce/ssu-commerce-config-server
+    tag: 2024.03.6
   pod:
     port: 8080
   service:
