@@ -13,7 +13,7 @@ book:
     port: 8080
   service:
     port: 8080
-  replicaCount: 0
+  replicaCount: 1
 
 order:
   name: ssu-commerce-order-server
@@ -24,7 +24,7 @@ order:
     port: 8080
   service:
     port: 8080
-  replicaCount: 0
+  replicaCount: 1
 
 config:
   name: ssu-commerce-config-server
