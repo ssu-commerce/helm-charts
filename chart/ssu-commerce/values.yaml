@@ -28,7 +28,7 @@ config:
   name: ssu-commerce-config-server
   image:
     repository: ghcr.io/ssu-commerce/ssu-commerce-config-server
-    tag: test-server
+    tag: 2024.06.11
   pod:
     port: 8080
   service:
