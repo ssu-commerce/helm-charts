@@ -5,6 +5,10 @@ Expand the name of the chart.
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
+{{- define "gateway-server.name" -}}
+{{- .Values.gateway.name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
 {{- define "book-server.name" -}}
 {{- .Values.book.name | trunc 63 | trimSuffix "-" }}
 {{- end }}
@@ -64,6 +68,10 @@ Selector labels
 {{- define "ssu-commerce.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "ssu-commerce.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{- define "gateway-server.selectorLabels" -}}
+app: {{ include "gateway-server.name" . }}
 {{- end }}
 
 {{- define "book-server.selectorLabels" -}}

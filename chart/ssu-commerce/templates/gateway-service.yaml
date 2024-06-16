@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.gateway.name }}
+  labels:
+    {{- include "ssu-commerce.labels" . | nindent 4 }}
+  annotations:
+    {{- include "ssu-commerce.annotations" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.gateway.service.port }}
+      targetPort: {{ .Values.gateway.pod.port }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gateway-server.selectorLabels" . | nindent 4 }}

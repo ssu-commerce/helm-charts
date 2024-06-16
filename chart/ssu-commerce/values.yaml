@@ -4,6 +4,15 @@
 
 replicaCount: 1
 active: dev
+gateway:
+  name: ssu-commerce-gateway-server
+  image:
+    repository: ghcr.io/ssu-commerce/gateway
+    tag: 2024.06.3
+  pod:
+    port: 8080
+  service:
+    port: 8080
 book:
   name: ssu-commerce-book-server
   image:
