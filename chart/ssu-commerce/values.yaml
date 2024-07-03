@@ -17,7 +17,7 @@ book:
   name: ssu-commerce-book-server
   image:
     repository: ghcr.io/ssu-commerce/book-server/api
-    tag: "2024.06.109"
+    tag: "2024.07.110"
   pod:
     port: 8080
   service:
