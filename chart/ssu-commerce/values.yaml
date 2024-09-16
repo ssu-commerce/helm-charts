@@ -8,7 +8,7 @@ gateway:
   name: ssu-commerce-gateway-server
   image:
     repository: ghcr.io/ssu-commerce/gateway
-    tag: 2024.06.3
+    tag: 2024.09.7
   pod:
     port: 8080
   service:
