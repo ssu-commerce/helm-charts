@@ -45,8 +45,8 @@ config:
 account:
   name: ssu-commerce-account-server
   image:
-    repository: ghcr.io/ssu-commerce/auth-server/api
-    tag: 2024.04.3
+    repository: ghcr.io/ssu-commerce/account/api
+    tag: 2024.09.5
   pod:
     port: 8080
   service:
