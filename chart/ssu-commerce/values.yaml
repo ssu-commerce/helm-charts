@@ -27,7 +27,7 @@ order:
   name: ssu-commerce-order-server
   image:
     repository: ghcr.io/ssu-commerce/order-server/api
-    tag: 2024.09.14
+    tag: 2024.11.15
   pod:
     port: 8080
   service:
