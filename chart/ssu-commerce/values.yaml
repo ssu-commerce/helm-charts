@@ -51,6 +51,15 @@ account:
     port: 8080
   service:
     port: 8080
+front:
+  name: ssu-commerce-front-server
+  image:
+    repository: ghcr.io/ssu-commerce/frontend
+    tag: latest
+  pod:
+    port: 3000
+  service:
+    port: 3000
 image:
   repository: nginx
   pullPolicy: Always
